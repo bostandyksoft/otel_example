@@ -1,0 +1,9 @@
+<component name="ProjectRunConfigurationManager">
+  <configuration default="false" name="PriceApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+    <module name="otel_example" />
+    <option name="SPRING_BOOT_MAIN_CLASS" value="org.example.otel_example.OtelExampleApplication" />
+    <method v="2">
+      <option name="Make" enabled="true" />
+    </method>
+  </configuration>
+</component>

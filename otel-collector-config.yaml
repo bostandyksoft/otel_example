@@ -1,0 +1,34 @@
+receivers:
+  otlp:
+    protocols:
+      grpc:
+      http:
+
+processors:
+ batch:
+   timeout: 1s
+   send_batch_size: 1000
+ tail_sampling:
+   decision_wait: 10s
+   num_traces: 1000
+   expected_new_traces_per_sec: 10
+   policies:
+     - name: keep-errors
+       type: status_code
+       status_code:
+         status_codes: ["ERROR"]
+     - name: keep-slow-traces
+       type: latency
+       latency:
+         threshold_ms: 500
+
+exporters:
+  otlphttp:
+    endpoint: http://jaeger:4318
+
+service:
+  pipelines:
+    traces:
+      receivers: [ otlp ]
+      processors: [ batch, tail_sampling ]
+      exporters: [ otlphttp ]
