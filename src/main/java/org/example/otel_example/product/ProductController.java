@@ -17,7 +17,7 @@ public class ProductController {
 
   @GetMapping(path = "/product/{id}")
   public Product getProductDetails(@PathVariable("id") long productId) throws InterruptedException {
-    if (Math.ceil(Math.random() * 100) % 2 == 0 ) {
+    if (Math.ceil(Math.random() * 100) > 50 ) {
       Thread.sleep(2000);
     }
     LOGGER.info("Getting Product and Price Details with Product Id {}", productId);
@@ -28,7 +28,7 @@ public class ProductController {
 
   @PutMapping(path = "/product")
   public Product updateProduct(@RequestBody Product product) throws InterruptedException {
-    if (Math.ceil(Math.random() * 100) % 2 == 0 ) {
+    if (Math.ceil(Math.random() * 100) > 50 ) {
       Thread.sleep(2000);
     }
     LOGGER.info("Updating Product and Price Details with Product Id {}", product.getId());
