@@ -1,0 +1,46 @@
+###
+PUT http://localhost:8081/product
+Content-Type: application/json
+
+{
+  "id" : 1,
+  "name": "Хлеб"
+}
+
+###
+PUT http://localhost:8080/price
+Content-Type: application/json
+
+{
+  "productId" : 1,
+  "priceAmount": 10,
+  "discount": 10
+}
+
+###
+PUT http://localhost:8081/product
+Content-Type: application/json
+
+{
+  "id" : 2,
+  "name": "Пироженное"
+}
+
+###
+PUT http://localhost:8080/price
+Content-Type: application/json
+
+{
+  "productId" : 2,
+  "priceAmount": 10,
+  "discount": 10
+}
+
+###
+GET http://localhost:8081/product/1
+
+###
+GET http://localhost:8081/product/2
+
+###
+GET http://localhost:8081/test/error
